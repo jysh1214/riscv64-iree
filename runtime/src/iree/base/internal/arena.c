@@ -125,6 +125,7 @@ void iree_arena_reset(iree_arena_allocator_t* arena) {
     } while (head);
     arena->allocation_head = NULL;
   }
+
   if (arena->block_head != NULL) {
 #if defined(IREE_SANITIZER_ADDRESS)
     iree_arena_block_t* block = arena->block_head;
@@ -140,6 +141,10 @@ void iree_arena_reset(iree_arena_allocator_t* arena) {
     arena->block_head = NULL;
     arena->block_tail = NULL;
   }
+
+  arena->total_allocation_size = 0;
+  arena->used_allocation_size = 0;
+  arena->block_bytes_remaining = 0;
 
   IREE_TRACE_ZONE_END(z0);
 }

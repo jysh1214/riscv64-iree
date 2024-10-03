@@ -97,6 +97,17 @@ static inline iree_byte_span_t iree_cast_const_byte_span(
   return iree_make_byte_span((uint8_t*)span.data, span.data_length);
 }
 
+// TODO(benvanik): if large enough use a streaming non-temporal copy (MOVNTDQ)
+// as we are writing into device memory and will never read it again on the
+// host. We want the reads to be cached as we may be broadcasting to multiple
+// devices by copying multiple times from the same source.
+// TODO(benvanik): implement a proper non-temporal copy.
+static inline void iree_memcpy_stream_dst(void* IREE_RESTRICT dst,
+                                          const void* IREE_RESTRICT src,
+                                          iree_host_size_t size) {
+  memcpy(dst, src, size);
+}
+
 //===----------------------------------------------------------------------===//
 // Totally shady stack allocation
 //===----------------------------------------------------------------------===//

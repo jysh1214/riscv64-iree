@@ -431,10 +431,15 @@ enum iree_hal_dispatch_flag_bits_t {
 
 // An RGBA color.
 typedef struct iree_hal_label_color_t {
-  uint8_t r;
-  uint8_t g;
-  uint8_t b;
-  uint8_t a;
+  union {
+    struct {
+      uint8_t r;
+      uint8_t g;
+      uint8_t b;
+      uint8_t a;
+    };
+    uint32_t value;
+  };
 } iree_hal_label_color_t;
 
 // A source location attached to debug labels.
