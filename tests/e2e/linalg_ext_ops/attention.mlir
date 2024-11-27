@@ -30,6 +30,15 @@ func.func @attention1x3x4() {
   return
 }
 
+func.func @i1_representation() {
+  %mask = util.unfoldable_constant dense<[140, 239]> : tensor<2xi8>
+  %casted = flow.tensor.bitcast %mask : tensor<2xi8> -> tensor<4x4xi1>
+  %bar = util.optimization_barrier %casted : tensor<4x4xi1>
+  %tensor_res = flow.tensor.bitcast %bar : tensor<4x4xi1> -> tensor<2xi8>
+  check.expect_eq_const(%tensor_res, dense<[140, 239]> : tensor<2xi8>) : tensor<2xi8>
+  return
+}
+
 func.func @causal_attention1x3x4() {
   %init = tensor.empty() : tensor<1x3x4xf32>
   %query = util.unfoldable_constant dense<[[[0.1, 0.2, 0.3, 0.4],
