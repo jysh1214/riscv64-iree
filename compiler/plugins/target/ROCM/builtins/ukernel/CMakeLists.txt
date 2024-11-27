@@ -176,72 +176,28 @@ iree_amdgpu_bitcode_library(
 
 iree_c_embed_data(
   NAME
-    iree_uk_amdgpu_gfx90a
-  SRCS
-    "iree_uk_amdgpu_argmax_f16i32.c.gfx90a.bc"
-    "iree_uk_amdgpu_argmax_f16i64.c.gfx90a.bc"
-    "iree_uk_amdgpu_argmax_f32i32.c.gfx90a.bc"
-    "iree_uk_amdgpu_argmax_f32i64.c.gfx90a.bc"
-  C_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx90a.c"
-  H_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx90a.h"
-  IDENTIFIER
-    "iree_uk_amdgpu_gfx90a"
-  FLATTEN
-  PUBLIC
-)
-
-iree_c_embed_data(
-  NAME
-    iree_uk_amdgpu_gfx942
-  SRCS
-    "iree_uk_amdgpu_argmax_f16i32.c.gfx942.bc"
-    "iree_uk_amdgpu_argmax_f16i64.c.gfx942.bc"
-    "iree_uk_amdgpu_argmax_f32i32.c.gfx942.bc"
-    "iree_uk_amdgpu_argmax_f32i64.c.gfx942.bc"
-  C_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx942.c"
-  H_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx942.h"
-  IDENTIFIER
-    "iree_uk_amdgpu_gfx942"
-  FLATTEN
-  PUBLIC
-)
-
-iree_c_embed_data(
-  NAME
-    iree_uk_amdgpu_gfx1030
+    iree_uk_amdgpu_bitcode
   SRCS
     "iree_uk_amdgpu_argmax_f16i32.c.gfx1030.bc"
-    "iree_uk_amdgpu_argmax_f16i64.c.gfx1030.bc"
-    "iree_uk_amdgpu_argmax_f32i32.c.gfx1030.bc"
-    "iree_uk_amdgpu_argmax_f32i64.c.gfx1030.bc"
-  C_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx1030.c"
-  H_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx1030.h"
-  IDENTIFIER
-    "iree_uk_amdgpu_gfx1030"
-  FLATTEN
-  PUBLIC
-)
-
-iree_c_embed_data(
-  NAME
-    iree_uk_amdgpu_gfx1100
-  SRCS
     "iree_uk_amdgpu_argmax_f16i32.c.gfx1100.bc"
+    "iree_uk_amdgpu_argmax_f16i32.c.gfx90a.bc"
+    "iree_uk_amdgpu_argmax_f16i32.c.gfx942.bc"
+    "iree_uk_amdgpu_argmax_f16i64.c.gfx1030.bc"
     "iree_uk_amdgpu_argmax_f16i64.c.gfx1100.bc"
+    "iree_uk_amdgpu_argmax_f16i64.c.gfx90a.bc"
+    "iree_uk_amdgpu_argmax_f16i64.c.gfx942.bc"
+    "iree_uk_amdgpu_argmax_f32i32.c.gfx1030.bc"
     "iree_uk_amdgpu_argmax_f32i32.c.gfx1100.bc"
+    "iree_uk_amdgpu_argmax_f32i32.c.gfx90a.bc"
+    "iree_uk_amdgpu_argmax_f32i32.c.gfx942.bc"
+    "iree_uk_amdgpu_argmax_f32i64.c.gfx1030.bc"
     "iree_uk_amdgpu_argmax_f32i64.c.gfx1100.bc"
+    "iree_uk_amdgpu_argmax_f32i64.c.gfx90a.bc"
+    "iree_uk_amdgpu_argmax_f32i64.c.gfx942.bc"
   C_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx1100.c"
+    "iree_uk_amdgpu_bitcode.c"
   H_FILE_OUTPUT
-    "iree_uk_amdgpu_gfx1100.h"
-  IDENTIFIER
-    "iree_uk_amdgpu_gfx1100"
+    "iree_uk_amdgpu_bitcode.h"
   FLATTEN
   PUBLIC
 )
